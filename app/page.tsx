@@ -9,10 +9,12 @@ export default function Home() {
   const [currentMode, setCurrentMode] = useState('random'); // 添加状态管理当前模式
 
   useEffect(() => {
-    loadWords().then(data => {
-      setWords(data);
-      setCurrentWord(getRandomWord(data));
-    });
+    fetch('/explore-in-words/word.json')
+      .then(res => res.json())
+      .then(data => {
+        setWords(data);
+        setCurrentWord(getRandomWord(data));
+      });
   }, []);
 
   const handleNext = () => {
