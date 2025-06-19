@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Explore in words
 
-## Getting Started
+辞海遨游。
 
-First, run the development server:
+> 【WIP】本项目当前处于早期开发阶段。
+
+## 项目介绍
+
+`Explore in words`，中文名：辞海遨游。
+
+一个交互式汉字探索的 WebAPP，提供多种模式探索汉字及其用法。
+
+## 功能特性
+
+1. **数据加载**
+   - 从数据源加载汉字和词语信息
+   - 包含拼音、释义、造句和典故等内容
+
+2. **交互模式**
+   - **随机模式**：随机展示汉字，支持前后切换
+   - **顺序模式**：按固定顺序浏览汉字
+   - **查找模式**：通过搜索框查找特定汉字
+
+## 开发
+
+1. 安装依赖
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. 启动项目
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. 构建项目
 
-## Learn More
+```bash
+pnpm build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 声明
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+感谢 [pwxcoo/chinese-xinhua](https://github.com/pwxcoo/chinese-xinhua) 项目提供的汉字数据集。
