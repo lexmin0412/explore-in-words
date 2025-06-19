@@ -94,7 +94,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src="/explore-in-words/explore-in-words/globe.svg"
+            src="/explore-in-words/globe.svg"
             alt="Globe icon"
             width={16}
             height={16}
