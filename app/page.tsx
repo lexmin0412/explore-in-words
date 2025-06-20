@@ -1,6 +1,11 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { loadWords, getRandomWord } from './utils/wordData';
+import { getRandomWord } from './utils/wordData';
+
+if (typeof window !== 'undefined') {
+  const VConsole = require('vconsole');
+  new VConsole();
+}
 
 export default function Home() {
   const [words, setWords] = useState<any[]>([]);
