@@ -62,6 +62,8 @@ jobs:
           # You may remove this line if you want to manage the configuration yourself.
           # 注释掉这一样，因为除了解决前缀问题，还需要加其他配置，如忽略 typescript 和 eslint 报错
           # static_site_generator: next
+      - name: Install pnpm
+        run: npm install pnpm@10.10.0 -g
       - name: Install dependencies
         run: pnpm install
       - name: Build with Next.js
