@@ -63,9 +63,9 @@ jobs:
           # 注释掉这一样，因为除了解决前缀问题，还需要加其他配置，如忽略 typescript 和 eslint 报错
           # static_site_generator: next
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: pnpm install
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: pnpm build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
