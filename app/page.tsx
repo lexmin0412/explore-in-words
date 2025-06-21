@@ -2,10 +2,8 @@
 import { useState, useEffect } from "react";
 import { cacheWords, getCachedWords, getRandomWord } from "./utils/wordData";
 
-if (typeof window !== "undefined") {
-  const VConsole = require("vconsole");
-  new VConsole();
-}
+// const VConsole = require("vconsole");
+// new VConsole();
 
 export default function Home() {
   const [words, setWords] = useState<any[]>([]);
@@ -25,7 +23,33 @@ export default function Home() {
     fetch('/explore-in-words/word.json')
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
-        return response.json()
+        let loaded = 0;
+        return new Response(
+          new ReadableStream({
+            async start(controller) {
+              const reader = response.body!.getReader();
+              
+              while (true) {
+                const { done, value } = await reader.read();
+                if (done) {
+                  controller.close();
+                  break;
+                }
+                
+                // 真实的文件大小，单位为 byte
+                const FILE_SIZE = 27354320
+                
+                loaded += value.length;
+                const progress = Math.round(loaded * 100 / (FILE_SIZE))
+                setLoadingProgress(progress);
+                controller.enqueue(value);
+              }
+            }
+          })
+        )
+      })
+      .then((res)=>{
+        return res.json()
       })
       .then(data => {
         setWords(data);
